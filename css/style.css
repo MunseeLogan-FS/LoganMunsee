@@ -1,0 +1,288 @@
+/* 5 varibles  */
+:root {
+  --color-darkblue: #005a9c;
+  --color-green: #2ebf68;
+  --color-darkgray: #2c3e50;
+  --color-softgray: #ecf0f1;
+  --mx: 0 auto;
+}
+/* basic page styling  */
+body {
+  background-color: var(--color-darkgray);
+  color: var(--color-softgray);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 1.3rem;
+  margin: 0 0 0 0.7rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 1.5rem 0 0 0.7rem;
+}
+#socials h2 {
+  margin: 0;
+}
+/* fixing nav bar to very top  */
+nav {
+  display: flex;
+  justify-content: space-between;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  background-color: var(--color-green);
+  align-items: center;
+}
+/* label used to make the hamburger menu  */
+/* display none to hide in desktop sizes */
+label {
+  display: none;
+  margin: 0 0.5rem 0 0;
+  font-size: 1.5rem;
+  width: 26px;
+  float: right;
+}
+/* hiding check box */
+#toggle {
+  display: none;
+}
+
+/* creating nav bar look  */
+header ul {
+  display: flex;
+  padding: 0 5px;
+  background-color: var(--color-green);
+  margin: 0;
+}
+/* making list inline with no bullets */
+/* 1 combonation selector  */
+header li {
+  display: inline-block;
+  list-style: none;
+  padding: 10px;
+}
+nav a {
+  color: var(--color-softgray);
+  text-decoration: none;
+}
+nav a:hover {
+  color: var(--color-darkblue);
+}
+/* using flexbox to center image instead of margin */
+header {
+  display: flex;
+  justify-content: center;
+}
+/* spacing logo  */
+header div img {
+  display: block;
+  margin: 4rem 0 2rem 0;
+  width: 100%;
+  max-width: 1200px;
+}
+
+#bio {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.bio-info {
+  width: 60%;
+  margin: var(--mx);
+}
+/* spacing bio  */
+div > p {
+  margin: 10px;
+  padding-bottom: 10px;
+}
+/* button styling  */
+button {
+  margin-left: 10px;
+  padding: 10px 16px;
+  border-radius: 4px;
+  background-color: var(--color-green);
+  color: var(--color-softgray);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: transform 0.3s ease, box-shadow 0.2s ease;
+}
+
+/* hover styling */
+button:hover {
+  background-color: var(--color-darkblue);
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+/* profile picture styling  */
+section > img {
+  margin: var(--mx);
+  border-radius: 1000px;
+  width: 30%;
+  min-width: 300px;
+}
+
+.card {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  margin: 1rem;
+  width: 90%;
+  background-color: #799299;
+}
+.card img {
+  display: block;
+  width: 90%;
+  margin: var(--mx);
+  padding: 1rem;
+  object-fit: cover;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}
+.socials {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0;
+}
+.socials li {
+  list-style: none;
+  padding: 0;
+}
+.socials a {
+  color: var(--color-softgray);
+  text-decoration: none;
+}
+.socials a:hover {
+  color: var(--color-darkblue);
+}
+#social h2 {
+  text-align: center;
+  margin: 0;
+}
+li img {
+  display: inline-block;
+  width: 20px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+/* look better on ultrawide */
+@media (width > 1800px) {
+  .card {
+    flex-direction: row;
+  }
+
+  .card img {
+    width: 50%;
+  }
+
+  section > img {
+    border-radius: 10px;
+  }
+}
+/* Make tablets/smaller computers look better  */
+@media (width < 1080px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* tablet/mobile  */
+@media (width < 768px) {
+  /* brings the img right to the bottom of the nav bar  */
+  header img {
+    margin-top: 2.5rem;
+  }
+
+  /* Making hamburger menu  */
+  /* works a little better for going to differnt pages vs same page nav as it unchecks the toggle when loading in the new page  */
+
+  /* adds a little bigger background for nav bar  */
+  nav {
+    height: 2.5rem;
+  }
+
+  label {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+  }
+
+  nav ul {
+    position: absolute;
+    flex-direction: column;
+    height: 0px;
+    overflow: hidden;
+    width: 100%;
+    transition: height 0.35s ease-in-out;
+    /* 2px overlap to avoid a small line  */
+    top: 38px;
+    /* align-items: center; */
+    /* used text align center to keep the border lines across the whole screen  */
+    text-align: center;
+  }
+
+  #toggle:checked ~ ul {
+    height: 180px;
+  }
+
+  nav li {
+    display: block;
+    border-bottom: 1px solid var(--color-softgray);
+  }
+
+  /* makes the a clickable across the whole block  */
+  nav a {
+    display: block;
+    width: 100%;
+  }
+
+  nav li:hover {
+    background-color: var(--color-darkblue);
+  }
+
+  nav a:active {
+    background-color: var(--color-darkblue);
+  }
+
+  nav a:hover {
+    color: var(--color-softgray);
+  }
+  /* making the grid look better for mobile  */
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .bio-info {
+    width: 95%;
+  }
+}
+/* Saving screen space on small screens  */
+@media (width < 500px) {
+  header div img {
+    display: none;
+  }
+
+  section > img {
+    margin-top: 3.5rem;
+  }
+  h1 {
+    font-size: 1.2rem;
+  }
+}

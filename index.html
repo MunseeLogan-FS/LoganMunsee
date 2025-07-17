@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="images/logo2.jpg" type="image/jpeg" />
+    <title>Logan Munsee</title>
+  </head>
+  <body>
+    <header>
+      <!-- fixed nav bar at the top -->
+      <nav>
+        <!-- Tried moving logo to nav bar but image got to small to see so left orginal and just put my name in the nav bar. -->
+        <!-- <img id="home" src="images/logo2.jpg" alt="Logan Munsee" /> -->
+        <h1>Logan Munsee</h1>
+        <input type="checkbox" id="toggle">
+        <ul>
+          <li><a href="#home">home</a></li>
+          <li><a href="#bio">Bio</a></li>
+          <li><a href="#favs">Favorites</a></li>
+          <li><a href="#social">Socials</a></li>
+        </ul>
+          <label for="toggle">&#9776</label>
+      </nav>
+
+      <!-- had to wrap image in a div because was using the image as a home point  -->
+      <div id="home">
+        <img  src="images/logo2.jpg" alt="Logan Munsee" />
+      </div>
+    
+    </header>
+    <section id="bio">
+      <img src="images/me.jpg" alt="" />
+      <!-- bio about me  -->
+      <div class="bio-info">
+        <p>
+          &emsp;I'm a U.S. Air Force veteran and freelance web developer with a passion for building modern, responsive websites that are as functional as they are visually appealing. I specialize in front-end development using HTML, CSS, React, and design frameworks like Chakra UI. Over the past few years, I’ve built websites for small businesses, helping them establish and grow their online presence through clean code, mobile-first design, and practical solutions.
+        </p>
+        <p>
+          &emsp;Currently, I am pursuing my degree in Web Development from Full Sail University, I'm sharpening my skills in server-side technologies and full-stack development. I enjoy tackling technical challenges, learning new frameworks, and seeing projects through from concept to deployment.
+        </p>
+        <p>
+          &emsp;Whether it’s creating a polished portfolio, building a custom site from scratch, or solving layout headaches, I bring professionalism, creativity, and a user-first mindset to every project. My goal is to help clients and teams deliver experiences that work seamlessly—on any device, for any user.
+        </p>
+
+        <!-- contact for email  -->
+         
+        <a href="mailto:lmunsee64@gmail.com">
+          <button type="submit">Send me an email!</button>
+         </a>
+
+      </div>
+    </section>
+    <section id="favs">
+      <h2>My Favorite Things</h2>
+      <!-- my fav things to do  -->
+      <div class="grid-container">
+        <div class="card">
+          <img
+            src="images/golf.jpg"
+            alt="Me and my friends golfing in Hawaii"
+          />
+          <div class="card-contents">
+            <p>I love to play golf it is one of my favorite hobbies</p>
+            <p>
+              I made many friends golfing in Hawaii while I lived there.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img
+            src="images/camping.jpg"
+            alt="When me and my wife bought our roof tent"
+          />
+          <div class="card-contents">
+            <p>Going on camping trips is my favorite way to travel the U.S</p>
+            <p>
+              My wife and I bought a tent for the roof of our car. It is a very
+              comfortable way to camp.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img
+            src="images/scotland.jpg"
+            alt="me and my wife in front of a castle in Scotland"
+          />
+          <div class="card-contents">
+            <p>Traveling the world with my wife is my number one goal</p>
+            <p>
+              This is the Dunvegan Castle. My wife and I saw so many castles
+              while in Scotland.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="images/MilaAndKeanu.jpg" alt="My dogs Mila and Keanu" />
+          <div class="card-contents">
+            <p>
+              Spending time and playing with my dogs is my favorite thing to do
+              at home.
+            </p>
+            <p>There was so many bloopers in the making of this photo.</p>
+          </div>
+        </div>
+
+        <!-- https://www.reddit.com/r/starwarsmemes/comments/13e02fr/playing_singleplayer_games_is_peacefull/#lightbox link to orginal meme -->
+        <div class="card">
+          <img
+            src="images/jus53hfwf3za1.jpg"
+            alt="meme about playimg signle player games"
+          />
+          <div class="card-contents">
+            <p>Playing video games is the best way to relax.</p>
+            <p>
+              I love FPS but they are not always as relaxing as single player
+              games.
+            </p>
+          </div>
+        </div>
+        <!-- Photo by Pixabay: https://www.pexels.com/photo/html-code-270366/ -->
+        <div class="card">
+          <img src="images/code.jpg" alt="Stock image of html" />
+          <div class="card-contents">
+            <p>
+              Learning web development has been a hobby of mine even before I
+              started at Full Sail.
+            </p>
+            <p>
+              Making a website for my dad was actually how I got into web design
+              as a hobby 9 years ago. Though I have not been very consistent in
+              keeping up with my skills.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="social">
+      <h2>Find Me On</h2>
+      <!-- social medias -->
+      <ul class="socials">
+        <li>
+          <img src="images/logo-white.png" alt="X Logo" />
+          <a href="https://x.com/LoganMunsee" target="_blank">@LoganMunsee</a>
+        </li>
+        <li>
+          <img src="images/LI-In-Bug.png" alt="Linkedin Logo" />
+          <a
+            href="https://www.linkedin.com/in/logan-munsee-205777313?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3ByCHcGR37TgysxY6BTZ0N%2BQ%3D%3D"
+            target="_blank"
+            >Logan Munsee</a
+          >
+        </li>
+        <li>
+          <img src="images/github-mark-white.png" alt="Github Logo" />
+          <a href="https://github.com/MunseeLogan-FS" target="_blank"
+            >@MunseeLogan-FS</a
+          >
+        </li>
+      </ul>
+    </section>
+    <footer>
+      <p>Logan Munsee</p>
+      <p>September 22, 2024</p>
+    </footer>
+  </body>
+</html>
