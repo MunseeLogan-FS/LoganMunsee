@@ -1,0 +1,18 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Exclude server-side build output from secrets scanning
+# These files contain compiled server code with environment variables
+# which is safe as they only run on the server, not exposed to clients
+[build.processing]
+  secrets_scan = true
+
+[build.processing.secrets_scan]
+  omit_paths = [
+    ".netlify/server/**",
+    ".svelte-kit/output/server/**"
+  ]

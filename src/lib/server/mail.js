@@ -20,10 +20,8 @@ const transporter = nodemailer.createTransport({
 export async function sendEmail(mailOptions) {
 	try {
 		const info = await transporter.sendMail(mailOptions);
-		console.log('✅ Email sent successfully:', info.response);
 		return info;
-	} catch (error) {
-		console.error('❌ Error sending email:', error);
-		throw new Error(error instanceof Error ? error.message : 'Unknown email send error');
+	} catch {
+		throw new Error('Failed to send email');
 	}
 }

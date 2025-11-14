@@ -13,8 +13,7 @@ export const actions = {
 				subject: 'New Contact Form Submission',
 				text: JSON.stringify(data, null, 2)
 			});
-		} catch (error) {
-			console.error('Error sending email:', error);
+		} catch {
 			return { success: false, error: 'Failed to send email' };
 		}
 
