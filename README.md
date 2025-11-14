@@ -28,7 +28,7 @@ npm run dev
 
 ## Contact
 
-- Website: [LoganMunsee.com](https://loganmunsee.com)
+- Website: [loganmunsee.com](https://loganmunsee.com)
 - Email: [My Email](mailto:lmunsee64@gmail.com)
 - GitHub: [@MunseeLogan-FS](https://github.com/MunseeLogan-FS)
 
