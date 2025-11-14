@@ -4,9 +4,4 @@
 
 [build.environment]
   NODE_VERSION = "20"
-
-[[build.processing.secrets_scan]]
-  omit_paths = [
-    ".netlify/server/**",
-    ".svelte-kit/output/server/**"
-  ]
+  SECRETS_SCAN_OMIT_PATHS = ".netlify/server/**,.svelte-kit/output/server/**"
