@@ -1,4 +1,5 @@
 <section class="what">
+	<!-- case change -->
 	<h2 class="heading">What I Do</h2>
 
 	<div class="cards">
@@ -26,6 +27,8 @@
 		</div>
 	</div>
 </section>
+
+<!-- fix made  -->
 
 <style>
 	.what {

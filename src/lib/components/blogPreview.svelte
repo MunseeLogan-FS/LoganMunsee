@@ -1,4 +1,5 @@
 <script>
+	// case change
 	let { posts = [] } = $props();
 
 	function formatDate(dateString) {
