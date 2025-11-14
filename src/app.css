@@ -1,0 +1,35 @@
+:root {
+	/* Brand Colors */
+	--color-darkblue: #005a9c;
+	--color-green: #2ebf68;
+	--color-darkgray: #2c3e50;
+	--color-softgray: #ecf0f1;
+
+	/* Gradient Colors */
+	--gradient-start: #0f6db2;
+	--gradient-end: #25c88a;
+
+	/* Typography */
+	--font-main: 'Inter', system-ui, sans-serif;
+	--radius-lg: 20px;
+	--radius-md: 12px;
+	--radius-sm: 8px;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: var(--font-main);
+	line-height: 1.6;
+	color: white;
+	background: linear-gradient(135deg, #1e3a8a 0%, #0f6db2 25%, #25c88a 75%, #10b981 100%);
+	background-attachment: fixed;
+	min-height: 100vh;
+}
