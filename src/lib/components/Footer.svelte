@@ -6,8 +6,10 @@
 		</div>
 
 		<div class="right">
-			<a href="https://github.com/loganmunsee" target="_blank" rel="noreferrer">GitHub</a>
-			<a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+			<a href="https://github.com/munseelogan-fs" target="_blank" rel="noreferrer">GitHub</a>
+			<a href="https://www.linkedin.com/in/logan-munsee" target="_blank" rel="noreferrer"
+				>LinkedIn</a
+			>
 			<a href="/contact">Contact</a>
 		</div>
 	</div>

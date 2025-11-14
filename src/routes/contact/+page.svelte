@@ -29,7 +29,7 @@
 						href="https://www.linkedin.com/in/logan-munsee"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="card-link">View Profile</a
+						class="card-link">Connect with me</a
 					>
 				</p>
 			</div>
@@ -42,7 +42,7 @@
 						href="https://github.com/MunseeLogan-FS"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="card-link">@loganmunsee</a
+						class="card-link">@MunseeLogan-FS</a
 					>
 				</p>
 			</div>
