@@ -2,9 +2,9 @@
 	import '../app.css';
 	import '$lib/styles/gradients.css';
 	import Hero from '$lib/components/Hero.svelte';
-	import WhatIDo from '$lib/components/WhatIDo.svelte.tmp';
-	import FeaturedProjects from '$lib/components/FeaturedProjects.svelte.tmp';
-	import BlogPreview from '$lib/components/BlogPreview.svelte.tmp';
+	import WhatIDo from '$lib/components/WhatIDo.svelte';
+	import FeaturedProjects from '$lib/components/FeaturedProjects.svelte';
+	import BlogPreview from '$lib/components/BlogPreview.svelte';
 
 	let { data } = $props();
 </script>
