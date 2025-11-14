@@ -17,13 +17,6 @@
 		</div>
 
 		<div class="project-card">
-			<img src="/images/project3.png" alt="project" />
-			<h3>Park Finder</h3>
-			<p>An API built with React and Express. Shows auth and full CRUD functionality.</p>
-			<a href="/projects/storage" class="view-btn">View Project</a>
-		</div>
-
-		<div class="project-card">
 			<img src="/images/project4.png" alt="project" />
 			<h3>Ready Set Travel</h3>
 			<p>HTML, CSS, and JavaScript travel planning front-end.</p>

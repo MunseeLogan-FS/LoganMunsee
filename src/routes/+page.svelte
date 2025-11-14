@@ -22,7 +22,7 @@
 </section>
 
 <style>
-	.section {
-		margin-top: var(--section-gap);
+	section {
+		margin-top: 3rem;
 	}
 </style>

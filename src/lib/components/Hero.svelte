@@ -28,7 +28,7 @@
 		align-items: center;
 		gap: 4rem;
 		padding: 4rem 2rem;
-		min-height: 600px;
+		min-height: 500px;
 		position: relative;
 		overflow: visible;
 	}
