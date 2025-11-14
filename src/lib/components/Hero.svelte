@@ -18,7 +18,7 @@
 
 	<div class="illustration">
 		<div class="illustration-bg"></div>
-		<img src="/images/me.jpg" alt="Developer illustration" />
+		<img src="/images/me.jpg" alt="Logan Munsee" />
 	</div>
 </section>
 
@@ -26,8 +26,8 @@
 	.hero {
 		display: flex;
 		align-items: center;
-		gap: 4rem;
-		padding: 4rem 2rem;
+		gap: 3rem;
+		padding: 3rem 2rem;
 		min-height: 500px;
 		position: relative;
 		overflow: visible;
