@@ -5,6 +5,8 @@
 	import WhatIDo from '$lib/components/WhatIDo.svelte';
 	import FeaturedProjects from '$lib/components/FeaturedProjects.svelte';
 	import BlogPreview from '$lib/components/blogPreview.svelte';
+
+	let { data } = $props();
 </script>
 
 <Hero />
@@ -18,7 +20,7 @@
 </section>
 
 <section class="section">
-	<BlogPreview />
+	<BlogPreview posts={data.recentPosts} />
 </section>
 
 <style>

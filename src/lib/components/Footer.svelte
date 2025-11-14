@@ -2,7 +2,7 @@
 	<div class="content">
 		<div class="left">
 			<h3 class="brand">Logan Munsee</h3>
-			<p>Full-Stack Web Developer & Designer</p>
+			<p>Full-Stack Web Developer & IT Professional</p>
 		</div>
 
 		<div class="right">
