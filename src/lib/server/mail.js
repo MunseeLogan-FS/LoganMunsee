@@ -1,13 +1,7 @@
 import nodemailer from 'nodemailer';
-import {
-	MAILCHANNELS_PASSWORD,
-	MAILCHANNELS_USERNAME,
-	DKIM_PRIVATE_KEY,
-	DKIM_DOMAIN,
-	DKIM_SELECTOR
-} from '$env/static/private';
+import { MAILCHANNELS_PASSWORD, MAILCHANNELS_USERNAME } from '$env/static/private';
 
-// Create a transporter using MailChannels
+// Create a transporter using MailChannels SMTP
 const transporter = nodemailer.createTransport({
 	host: 'smtp.mailchannels.net',
 	port: 587,
@@ -15,18 +9,15 @@ const transporter = nodemailer.createTransport({
 	auth: {
 		user: MAILCHANNELS_USERNAME,
 		pass: MAILCHANNELS_PASSWORD
-	},
-	dkim: DKIM_PRIVATE_KEY
-		? {
-				domainName: DKIM_DOMAIN || 'loganmunsee.com',
-				keySelector: DKIM_SELECTOR || 'mailchannels',
-				privateKey: DKIM_PRIVATE_KEY
-			}
-		: undefined
+	}
 });
 
 /*
  * Sends an email using MailChannels via Nodemailer.
+ * DKIM signing is handled automatically by MailChannels if your DNS records are configured:
+ * 1. SPF record: v=spf1 include:relay.mailchannels.net ~all
+ * 2. DKIM record at: default._domainkey.loganmunsee.com
+ * 3. DMARC record at: _dmarc.loganmunsee.com
  *
  * @param mailOptions - A Nodemailer SendMailOptions object
  */
