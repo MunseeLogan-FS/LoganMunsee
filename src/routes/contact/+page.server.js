@@ -1,4 +1,5 @@
-import { sendEmail } from '$lib/mail';
+//updated server
+import { sendEmail } from '$lib/server/mail';
 
 export const actions = {
 	default: async ({ request }) => {
