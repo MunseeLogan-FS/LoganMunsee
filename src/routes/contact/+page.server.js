@@ -7,7 +7,7 @@ export const actions = {
 		// Send the email
 		try {
 			await sendEmail({
-				from: 'no-reply@loganmunsee.com',
+				from: 'form submission <no-reply@loganmunsee.com>',
 				to: 'lmunsee64@gmail.com',
 				subject: 'New Contact Form Submission',
 				html: `
