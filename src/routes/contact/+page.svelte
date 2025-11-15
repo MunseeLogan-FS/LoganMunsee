@@ -1,5 +1,8 @@
 <script>
+	import { enhance } from '$app/forms';
+
 	let { form } = $props();
+	let isSubmitting = $state(false);
 </script>
 
 <section class="contact-container">
@@ -48,7 +51,18 @@
 			</div>
 		</div>
 
-		<form method="POST" class="contact-form">
+		<form
+			method="POST"
+			class="contact-form"
+			use:enhance={() => {
+				isSubmitting = true;
+
+				return async ({ result, update }) => {
+					isSubmitting = false;
+					await update();
+				};
+			}}
+		>
 			<div class="field">
 				<label for="name">Name</label>
 				<input id="name" name="name" placeholder="Your name" required />
@@ -70,8 +84,8 @@
 				></textarea>
 			</div>
 
-			<button type="submit" class="btn-submit">
-				<span>Send Message</span>
+			<button type="submit" class="btn-submit" disabled={isSubmitting}>
+				<span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
 				<span class="arrow">→</span>
 			</button>
 
@@ -79,6 +93,13 @@
 				<div class="success">
 					<span class="check">✓</span>
 					Thanks! Your message has been sent. I'll get back to you soon.
+				</div>
+			{/if}
+
+			{#if form?.error}
+				<div class="error">
+					<span class="cross">✕</span>
+					{form.error}. Please try again or email me directly.
 				</div>
 			{/if}
 		</form>
@@ -253,13 +274,19 @@
 		box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
 	}
 
-	.btn-submit:hover {
+	.btn-submit:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+		transform: none;
+	}
+
+	.btn-submit:hover:not(:disabled) {
 		transform: translateY(-2px);
 		background: white;
 		box-shadow: 0 6px 25px rgba(255, 255, 255, 0.4);
 	}
 
-	.btn-submit:hover .arrow {
+	.btn-submit:hover:not(:disabled) .arrow {
 		transform: translateX(5px);
 	}
 
@@ -288,6 +315,30 @@
 		width: 24px;
 		height: 24px;
 		background: rgba(16, 185, 129, 0.3);
+		border-radius: 50%;
+		font-size: 1rem;
+	}
+
+	.error {
+		padding: 1rem 1.5rem;
+		background: rgba(239, 68, 68, 0.2);
+		border: 1px solid rgba(239, 68, 68, 0.4);
+		border-radius: var(--radius-md);
+		color: white;
+		font-weight: 600;
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+	}
+
+	.cross {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 24px;
+		height: 24px;
+		background: rgba(239, 68, 68, 0.3);
 		border-radius: 50%;
 		font-size: 1rem;
 	}

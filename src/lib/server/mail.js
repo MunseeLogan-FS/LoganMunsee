@@ -1,5 +1,11 @@
 import nodemailer from 'nodemailer';
-import { MAILCHANNELS_PASSWORD, MAILCHANNELS_USERNAME } from '$env/static/private';
+import {
+	MAILCHANNELS_PASSWORD,
+	MAILCHANNELS_USERNAME,
+	DKIM_PRIVATE_KEY,
+	DKIM_DOMAIN,
+	DKIM_SELECTOR
+} from '$env/static/private';
 
 // Create a transporter using MailChannels
 const transporter = nodemailer.createTransport({
@@ -9,7 +15,14 @@ const transporter = nodemailer.createTransport({
 	auth: {
 		user: MAILCHANNELS_USERNAME,
 		pass: MAILCHANNELS_PASSWORD
-	}
+	},
+	dkim: DKIM_PRIVATE_KEY
+		? {
+				domainName: DKIM_DOMAIN || 'loganmunsee.com',
+				keySelector: DKIM_SELECTOR || 'mailchannels',
+				privateKey: DKIM_PRIVATE_KEY
+			}
+		: undefined
 });
 
 /*
