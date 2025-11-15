@@ -27,6 +27,8 @@
 	</div>
 </section>
 
+<!-- fix made  -->
+
 <style>
 	.what {
 		margin-top: 5rem;

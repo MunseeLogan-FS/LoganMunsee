@@ -4,7 +4,7 @@
 	import Hero from '$lib/components/Hero.svelte';
 	import WhatIDo from '$lib/components/WhatIDo.svelte';
 	import FeaturedProjects from '$lib/components/FeaturedProjects.svelte';
-	import BlogPreview from '$lib/components/blogPreview.svelte';
+	import BlogPreview from '$lib/components/BlogPreview.svelte';
 
 	let { data } = $props();
 </script>
