@@ -29,7 +29,12 @@ body {
 	font-family: var(--font-main);
 	line-height: 1.6;
 	color: white;
-	background: linear-gradient(135deg, #1e3a8a 0%, #0f6db2 25%, #25c88a 75%, #10b981 100%);
+	background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
 	background-attachment: fixed;
 	min-height: 100vh;
+}
+@supports (-webkit-touch-callout: none) {
+	body {
+		background-attachment: scroll;
+	}
 }

@@ -1,6 +1,5 @@
 <script>
 	import '../app.css';
-	import '$lib/styles/gradients.css';
 	import Hero from '$lib/components/Hero.svelte';
 	import WhatIDo from '$lib/components/WhatIDo.svelte';
 	import FeaturedProjects from '$lib/components/FeaturedProjects.svelte';
