@@ -77,14 +77,12 @@
 	.intro h1 {
 		font-size: clamp(2.5rem, 5vw, 3rem);
 		margin-bottom: 0.5rem;
-		color: white;
-		text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+		color: var(--text-color);
 		font-weight: 800;
 	}
 
 	.tagline {
 		color: rgba(255, 255, 255, 0.9);
-		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 		font-size: 1.125rem;
 		line-height: 1.7;
 		max-width: 600px;
@@ -105,13 +103,12 @@
 	.about-card p {
 		margin: 1.25rem 0;
 		color: rgba(255, 255, 255, 0.9);
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 		line-height: 1.8;
 		font-size: 1.05rem;
 	}
 
 	.about-card strong {
-		color: white;
+		color: var(--text-color);
 		font-weight: 700;
 	}
 
@@ -126,14 +123,12 @@
 	.section h2 {
 		font-size: 2rem;
 		margin-bottom: 1rem;
-		color: white;
-		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+		color: var(--text-color);
 		font-weight: 700;
 	}
 
 	.section p {
 		color: rgba(255, 255, 255, 0.9);
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 		line-height: 1.8;
 		font-size: 1.05rem;
 	}
@@ -159,8 +154,7 @@
 		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 		text-align: center;
 		font-weight: 600;
-		color: white;
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		color: var(--text-color);
 		transition: all 0.3s ease;
 	}
 

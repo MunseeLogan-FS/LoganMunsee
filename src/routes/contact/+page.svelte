@@ -121,8 +121,7 @@
 	h1 {
 		font-size: clamp(2.5rem, 5vw, 3.5rem);
 		margin-bottom: 1rem;
-		color: white;
-		text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+		color: var(--text-color);
 		font-weight: 800;
 	}
 
@@ -132,7 +131,6 @@
 		max-width: 600px;
 		margin: 0 auto;
 		color: rgba(255, 255, 255, 0.9);
-		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 	}
 
 	.contact-content {
@@ -170,16 +168,14 @@
 	}
 
 	.info-card h3 {
-		color: white;
+		color: var(--text-color);
 		font-size: 1.25rem;
 		margin-bottom: 0.5rem;
-		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	}
 
 	.info-card p {
 		color: rgba(255, 255, 255, 0.85);
 		font-size: 0.95rem;
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 		word-break: break-all;
 		overflow-wrap: anywhere;
 		hyphens: auto;
@@ -197,7 +193,6 @@
 	.email-link:hover,
 	.card-link:hover {
 		color: white;
-		text-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
 	}
 
 	.contact-form {
@@ -223,9 +218,8 @@
 
 	label {
 		font-weight: 600;
-		color: white;
+		color: var(--text-color);
 		font-size: 0.95rem;
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 	}
 
 	input,
@@ -237,7 +231,7 @@
 		backdrop-filter: blur(10px);
 		font-size: 1rem;
 		font-family: inherit;
-		color: white;
+		color: var(--text-color);
 		transition: all 0.3s ease;
 		width: 100%;
 		box-sizing: border-box;
@@ -300,12 +294,11 @@
 		background: rgba(16, 185, 129, 0.2);
 		border: 1px solid rgba(16, 185, 129, 0.4);
 		border-radius: var(--radius-md);
-		color: white;
+		color: var(--text-color);
 		font-weight: 600;
 		display: flex;
 		align-items: center;
 		gap: 0.75rem;
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 	}
 
 	.check {
@@ -324,12 +317,11 @@
 		background: rgba(239, 68, 68, 0.2);
 		border: 1px solid rgba(239, 68, 68, 0.4);
 		border-radius: var(--radius-md);
-		color: white;
+		color: var(--text-color);
 		font-weight: 600;
 		display: flex;
 		align-items: center;
 		gap: 0.75rem;
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 	}
 
 	.cross {

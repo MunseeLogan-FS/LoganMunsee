@@ -25,7 +25,7 @@
 		background: rgba(255, 255, 255, 0.08);
 		backdrop-filter: blur(20px);
 		-webkit-backdrop-filter: blur(20px);
-		color: white;
+		color: var(--text-color);
 		padding: 3rem 2rem;
 		border-top: 1px solid rgba(255, 255, 255, 0.15);
 	}
@@ -44,7 +44,6 @@
 		font-size: 1.4rem;
 		font-weight: 700;
 		margin-bottom: 0.5rem;
-		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	}
 
 	.right {
@@ -53,11 +52,10 @@
 	}
 
 	.right a {
-		color: white;
+		color: var(--text-color);
 		text-decoration: none;
 		opacity: 0.9;
 		transition: opacity 0.2s ease;
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 	}
 
 	.right a:hover {
@@ -68,7 +66,6 @@
 		margin-top: 2rem;
 		text-align: center;
 		opacity: 0.75;
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 	}
 
 	@media (max-width: 750px) {

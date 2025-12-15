@@ -44,16 +44,14 @@
 		font-weight: 800;
 		line-height: 1.1;
 		margin-bottom: 1.5rem;
-		color: white;
-		text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+		color: var(--text-color);
 	}
 
 	.subtitle {
 		font-size: clamp(1.25rem, 3vw, 1.75rem);
 		font-weight: 400;
 		margin-bottom: 1.5rem;
-		color: rgba(255, 255, 255, 0.95);
-		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+		color: var(--text-color);
 	}
 
 	.description {
@@ -61,8 +59,7 @@
 		line-height: 1.7;
 		max-width: 480px;
 		margin-bottom: 2.5rem;
-		color: rgba(255, 255, 255, 0.9);
-		text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+		color: var(--text-color);
 	}
 
 	.buttons {
@@ -96,7 +93,7 @@
 
 	.btn.secondary {
 		background: rgba(255, 255, 255, 0.1);
-		color: white;
+		color: var(--text-color);
 		border: 2px solid rgba(255, 255, 255, 0.4);
 		backdrop-filter: blur(10px);
 	}

@@ -76,8 +76,7 @@
 	h1 {
 		font-size: clamp(2.5rem, 5vw, 3.5rem);
 		margin-bottom: 1rem;
-		color: white;
-		text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+		color: var(--text-color);
 		font-weight: 800;
 	}
 
@@ -87,7 +86,6 @@
 		max-width: 700px;
 		margin: 0 auto;
 		color: rgba(255, 255, 255, 0.9);
-		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 	}
 
 	.projects-grid {
@@ -140,16 +138,14 @@
 	}
 
 	.project-content h3 {
-		color: white;
+		color: var(--text-color);
 		font-size: 1.5rem;
 		margin-bottom: 0.75rem;
-		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		font-weight: 700;
 	}
 
 	.description {
 		color: rgba(255, 255, 255, 0.9);
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 		margin-bottom: 1.25rem;
 		line-height: 1.6;
 		flex: 1;
@@ -169,7 +165,6 @@
 		border-radius: 50px;
 		font-size: 0.875rem;
 		font-weight: 500;
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 		border: 1px solid rgba(255, 255, 255, 0.2);
 	}
 
