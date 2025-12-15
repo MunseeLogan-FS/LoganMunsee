@@ -89,35 +89,38 @@
 
 <header class="header">
 	<div class="container">
-		<a href="/" class="logo">Logan Munsee</a>
-		<div class="brightness-control">
-			<span aria-hidden="true">Night</span>
+		<div class="top-row">
+			<a href="/" class="logo">Logan Munsee</a>
 
-			<input
-				type="range"
-				min={MIN}
-				max={MAX}
-				step="1"
-				bind:value={brightness}
-				aria-label="Adjust appearance"
-			/>
+			<div class="brightness-control">
+				<span aria-hidden="true">🌙</span>
 
-			<span aria-hidden="true">Neon</span>
+				<input
+					type="range"
+					min={MIN}
+					max={MAX}
+					step="1"
+					bind:value={brightness}
+					aria-label="Adjust appearance"
+				/>
+
+				<span aria-hidden="true">☀️</span>
+			</div>
+
+			<nav class="nav-desktop">
+				<a href="/">Home</a>
+				<a href="/projects">Projects</a>
+				<a href="/blog">Blog</a>
+				<a href="/about">About</a>
+				<a href="/contact">Contact</a>
+			</nav>
+
+			<button class="mobile-toggle" onclick={toggleMenu} aria-label="Toggle mobile menu">
+				<span class={mobileOpen ? 'bar open' : 'bar'}></span>
+				<span class={mobileOpen ? 'bar open' : 'bar'}></span>
+				<span class={mobileOpen ? 'bar open' : 'bar'}></span>
+			</button>
 		</div>
-
-		<nav class="nav-desktop">
-			<a href="/">Home</a>
-			<a href="/projects">Projects</a>
-			<a href="/blog">Blog</a>
-			<a href="/about">About</a>
-			<a href="/contact">Contact</a>
-		</nav>
-
-		<button class="mobile-toggle" onclick={toggleMenu} aria-label="Toggle mobile menu">
-			<span class={mobileOpen ? 'bar open' : 'bar'}></span>
-			<span class={mobileOpen ? 'bar open' : 'bar'}></span>
-			<span class={mobileOpen ? 'bar open' : 'bar'}></span>
-		</button>
 	</div>
 
 	{#if mobileOpen}
@@ -147,10 +150,13 @@
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 1.2rem 2rem;
-		display: flex;
-		justify-content: space-between;
+	}
+
+	.top-row {
+		display: grid;
+		grid-template-columns: auto 1fr auto;
 		align-items: center;
-		gap: 1.5rem;
+		gap: 1.25rem;
 	}
 
 	.logo {
@@ -163,6 +169,9 @@
 	.nav-desktop {
 		display: flex;
 		gap: 2rem;
+		justify-self: end;
+		align-items: center;
+		grid-column: 3 / 4;
 	}
 
 	.nav-desktop a {
@@ -196,7 +205,11 @@
 		display: flex;
 		align-items: center;
 		gap: 0.75rem;
-		max-width: 320px;
+		width: 100%;
+		max-width: 220px;
+		justify-self: center;
+		align-self: center;
+		grid-column: 2 / 3;
 	}
 
 	.brightness-control span {
@@ -256,6 +269,7 @@
 		border: none;
 		cursor: pointer;
 		z-index: 200;
+		justify-self: end;
 	}
 
 	.bar {
@@ -296,6 +310,26 @@
 	}
 
 	@media (max-width: 850px) {
+		.container {
+			padding: 1rem 1.25rem;
+		}
+
+		.logo {
+			display: none;
+		}
+
+		.top-row {
+			grid-template-columns: 1fr auto;
+			grid-template-rows: auto auto;
+			gap: 0.75rem 1rem;
+		}
+
+		.brightness-control {
+			grid-column: 1 / 2;
+			justify-self: start;
+			max-width: 200px;
+		}
+
 		.nav-desktop {
 			display: none;
 		}
