@@ -3,25 +3,62 @@
 	<script>
 		(function () {
 			try {
+				const MIN = 0;
+				const MAX = 100;
+				const DEFAULT = 50;
+
+				const palette = {
+					dark: {
+						start: { h: 210, s: 80, l: 18 },
+						end: { h: 164, s: 72, l: 26 },
+						shadow: { alpha: 0.5, blur: 5 }
+					},
+					bright: {
+						start: { h: 200, s: 100, l: 56 },
+						end: { h: 141, s: 88, l: 52 },
+						shadow: { alpha: 0.14, blur: 2.5 }
+					}
+				};
+
+				const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
+				const lerp = (a, b, t) => a + (b - a) * t;
+
 				const saved = localStorage.getItem('brightness');
-				const brightness = saved ? Number(saved) : 50;
+				const brightness = saved ? Number(saved) : DEFAULT;
+				const normalized = (clamp(brightness, MIN, MAX) - MIN) / (MAX - MIN);
+				const eased = 0.5 - Math.cos(Math.PI * normalized) / 2;
 
-				const MIN = 30;
-				const MAX = 70;
-				const b = Math.min(Math.max(brightness, MIN), MAX);
+				const startH = lerp(palette.dark.start.h, palette.bright.start.h, eased);
+				const startS = lerp(palette.dark.start.s, palette.bright.start.s, eased);
+				const startL = lerp(palette.dark.start.l, palette.bright.start.l, eased);
 
-				const start = b - 4;
-				const end = b + 6;
+				const endH = lerp(palette.dark.end.h, palette.bright.end.h, eased);
+				const endS = lerp(palette.dark.end.s, palette.bright.end.s, eased);
+				const endL = lerp(palette.dark.end.l, palette.bright.end.l, eased);
 
-				// const text = 92 - ((b - MIN) / (MAX - MIN)) * 80;
+				const shadowAlpha = lerp(palette.dark.shadow.alpha, palette.bright.shadow.alpha, eased);
+				const shadowBlur = lerp(palette.dark.shadow.blur, palette.bright.shadow.blur, eased);
+				const overlay = 0.06 + eased * 0.12;
 
 				const root = document.documentElement;
 
-				root.style.setProperty('--gradient-start', `hsl(205, 84%, ${start}%)`);
+				root.style.setProperty(
+					'--gradient-start',
+					`hsl(${startH.toFixed(1)}, ${startS.toFixed(1)}%, ${startL.toFixed(1)}%)`
+				);
 
-				root.style.setProperty('--gradient-end', `hsl(157, 69%, ${end}%)`);
-
-				root.style.setProperty('--text-color', `hsl(0, 0%, ${text}%)`);
+				root.style.setProperty(
+					'--gradient-end',
+					`hsl(${endH.toFixed(1)}, ${endS.toFixed(1)}%, ${endL.toFixed(1)}%)`
+				);
+				root.style.setProperty('--shadow-alpha', shadowAlpha.toFixed(2));
+				root.style.setProperty('--shadow-blur', `${shadowBlur.toFixed(2)}px`);
+				root.style.setProperty(
+					'--bg-overlay',
+					`radial-gradient(circle at 18% 18%, rgba(255,255,255,${overlay}), transparent 36%), radial-gradient(circle at 80% 16%, rgba(255,255,255,${
+						overlay * 0.7
+					}), transparent 32%)`
+				);
 			} catch (e) {
 				/* fail silently */
 			}
