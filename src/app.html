@@ -1,5 +1,33 @@
 <!doctype html>
 <html lang="en">
+	<script>
+		(function () {
+			try {
+				const saved = localStorage.getItem('brightness');
+				const brightness = saved ? Number(saved) : 50;
+
+				const MIN = 30;
+				const MAX = 70;
+				const b = Math.min(Math.max(brightness, MIN), MAX);
+
+				const start = b - 4;
+				const end = b + 6;
+
+				// const text = 92 - ((b - MIN) / (MAX - MIN)) * 80;
+
+				const root = document.documentElement;
+
+				root.style.setProperty('--gradient-start', `hsl(205, 84%, ${start}%)`);
+
+				root.style.setProperty('--gradient-end', `hsl(157, 69%, ${end}%)`);
+
+				root.style.setProperty('--text-color', `hsl(0, 0%, ${text}%)`);
+			} catch (e) {
+				/* fail silently */
+			}
+		})();
+	</script>
+
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />

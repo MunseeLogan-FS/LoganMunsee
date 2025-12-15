@@ -53,8 +53,7 @@
 
 <style>
 	.heading {
-		color: white;
-		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+		color: var(--text-color);
 		margin-bottom: 2rem;
 	}
 
@@ -73,7 +72,7 @@
 		padding: 1.5rem;
 		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 		transition: all 0.3s ease;
-		color: white;
+		color: var(--text-color);
 	}
 
 	.project-card:hover {
@@ -92,21 +91,19 @@
 	}
 
 	.project-card h3 {
-		color: white;
-		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		color: var(--text-color);
 		margin-bottom: 0.5rem;
 	}
 
 	.project-card p {
 		color: rgba(255, 255, 255, 0.9);
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 		margin-bottom: 0.5rem;
 	}
 
 	.view-btn {
 		display: inline-block;
 		margin-top: 1rem;
-		color: white;
+		color: var(--text-color);
 		font-weight: 600;
 		text-decoration: none;
 		padding: 0.5rem 1rem;

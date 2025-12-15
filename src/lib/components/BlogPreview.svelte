@@ -37,8 +37,8 @@
 
 <style>
 	.heading {
-		color: white;
-		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+		color: var(--text-color);
+		font-size: 2rem;
 		margin-bottom: 2rem;
 	}
 
@@ -55,7 +55,7 @@
 		-webkit-backdrop-filter: blur(20px);
 		border-radius: var(--radius-md);
 		text-decoration: none;
-		color: white;
+		color: var(--text-color);
 		transition: all 0.3s ease;
 	}
 
@@ -66,8 +66,7 @@
 	}
 
 	.blog-item h3 {
-		color: white;
-		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		color: var(--text-color);
 		margin-bottom: 0.5rem;
 	}
 
@@ -75,14 +74,12 @@
 		opacity: 0.8;
 		font-size: 0.9rem;
 		color: rgba(255, 255, 255, 0.9);
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 		margin-bottom: 0.5rem;
 	}
 
 	.excerpt {
 		font-size: 0.95rem;
 		color: rgba(255, 255, 255, 0.85);
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 		margin-top: 0.5rem;
 		line-height: 1.5;
 	}
@@ -91,7 +88,6 @@
 		color: rgba(255, 255, 255, 0.8);
 		text-align: center;
 		padding: 2rem;
-		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 	}
 	.view-all {
 		margin-top: 3rem;
