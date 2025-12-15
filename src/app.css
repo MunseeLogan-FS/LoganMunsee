@@ -5,17 +5,18 @@
 	--color-darkgray: #2c3e50;
 	--color-softgray: #ecf0f1;
 
-	/* Gradient Colors (HSL = slider-friendly) */
-	--gradient-start: hsl(205, 84%, 38%);
-	--gradient-end: hsl(157, 69%, 46%);
+	/* Gradient Colors (mid-point defaults) */
+	--gradient-start: hsl(205, 90%, 37%);
+	--gradient-end: hsl(153, 80%, 39%);
 
 	/* Theme */
 	--text-color: hsl(0, 0%, 100%);
 	/* Shadow variables driven by slider */
 	--shadow-alpha: 0.32; /* default ~mid brightness */
-	--shadow-blur: 3px; /* default ~mid brightness */
+	--shadow-blur: 3.75px; /* default ~mid brightness */
 	--text-shadow: 0 1px var(--shadow-blur) rgba(0, 0, 0, var(--shadow-alpha));
-	--bg-overlay: none;
+	--bg-overlay: radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.12), transparent 36%),
+		radial-gradient(circle at 80% 16%, rgba(255, 255, 255, 0.084), transparent 32%);
 
 	/* Typography */
 	--font-main: 'Inter', system-ui, sans-serif;

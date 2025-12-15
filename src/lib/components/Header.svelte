@@ -5,75 +5,70 @@
 	let mobileOpen = $state(false);
 	let hasMounted = $state(false);
 
-	// Brightness range
-	const MIN = 20;
-	const MAX = 80;
+	const MIN = 0;
+	const MAX = 100;
 	const DEFAULT = 50;
 
 	let brightness = $state(DEFAULT);
+
+	const palette = {
+		dark: {
+			start: { h: 210, s: 80, l: 18 },
+			end: { h: 164, s: 72, l: 26 },
+			shadow: { alpha: 0.5, blur: 5 }
+		},
+		bright: {
+			start: { h: 200, s: 100, l: 56 },
+			end: { h: 141, s: 88, l: 52 },
+			shadow: { alpha: 0.14, blur: 2.5 }
+		}
+	};
+
+	const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+	const lerp = (a, b, t) => a + (b - a) * t;
 
 	const toggleMenu = () => {
 		mobileOpen = !mobileOpen;
 	};
 
-	const t = $derived(() => {
-		return (brightness - MIN) / (MAX - MIN);
-	});
-
-	const eased = $derived(() => {
-		const x = t();
-		return x * x * (3 - 2 * x); // smoothstep
-	});
-
-	const shadowAlpha = $derived(() => {
-		return 0.18 + eased() * 0.28; // 0.18 → 0.46
-	});
-
-	const shadowBlur = $derived(() => {
-		return 2 + eased() * 2; // 2px → 4px
-	});
-
-	const blueHue = $derived(() => {
-		return 203 + eased() * 6; // 203 → 209
-	});
-
-	const blueSaturation = $derived(() => {
-		return 90 - eased() * 22; // 90 → 68
-	});
-
-	const blueLightness = $derived(() => {
-		return 28 + eased() * 20; // 28 → 48
-	});
-
-	// GREEN (end)
-	const greenHue = $derived(() => {
-		return 157 + eased() * 5; // 157 → 162
-	});
-
-	const greenSaturation = $derived(() => {
-		return 82 - eased() * 28; // 82 → 54
-	});
-	const greenLightness = $derived(() => {
-		return 36 + eased() * 18; // 36 → 54
-	});
-
 	$effect(() => {
 		if (typeof document === 'undefined') return;
 
 		const root = document.documentElement;
+		const normalized = (brightness - MIN) / (MAX - MIN);
+		const eased = 0.5 - Math.cos(Math.PI * normalized) / 2;
+
+		const startH = lerp(palette.dark.start.h, palette.bright.start.h, eased);
+		const startS = lerp(palette.dark.start.s, palette.bright.start.s, eased);
+		const startL = lerp(palette.dark.start.l, palette.bright.start.l, eased);
+
+		const endH = lerp(palette.dark.end.h, palette.bright.end.h, eased);
+		const endS = lerp(palette.dark.end.s, palette.bright.end.s, eased);
+		const endL = lerp(palette.dark.end.l, palette.bright.end.l, eased);
+
+		const shadowAlpha = lerp(palette.dark.shadow.alpha, palette.bright.shadow.alpha, eased);
+		const shadowBlur = lerp(palette.dark.shadow.blur, palette.bright.shadow.blur, eased);
+		const overlay = 0.06 + eased * 0.12;
 
 		root.style.setProperty(
 			'--gradient-start',
-			`hsl(${blueHue()}, ${blueSaturation()}%, ${blueLightness()}%)`
+			`hsl(${startH.toFixed(1)}, ${startS.toFixed(1)}%, ${startL.toFixed(1)}%)`
 		);
 
 		root.style.setProperty(
 			'--gradient-end',
-			`hsl(${greenHue()}, ${greenSaturation()}%, ${greenLightness()}%)`
+			`hsl(${endH.toFixed(1)}, ${endS.toFixed(1)}%, ${endL.toFixed(1)}%)`
 		);
 
-		root.style.setProperty('--shadow-alpha', shadowAlpha().toString());
-		root.style.setProperty('--shadow-blur', `${shadowBlur()}px`);
+		root.style.setProperty('--shadow-alpha', shadowAlpha.toFixed(2));
+		root.style.setProperty('--shadow-blur', `${shadowBlur.toFixed(2)}px`);
+
+		root.style.setProperty(
+			'--bg-overlay',
+			`radial-gradient(circle at 18% 18%, rgba(255,255,255,${overlay}), transparent 36%), radial-gradient(circle at 80% 16%, rgba(255,255,255,${
+				overlay * 0.7
+			}), transparent 32%)`
+		);
 
 		if (hasMounted) {
 			localStorage.setItem('brightness', brightness.toString());
@@ -85,7 +80,7 @@
 		if (saved) {
 			const parsed = Number(saved);
 			if (!Number.isNaN(parsed)) {
-				brightness = Math.min(Math.max(parsed, MIN), MAX);
+				brightness = clamp(parsed, MIN, MAX);
 			}
 		}
 		hasMounted = true;
@@ -96,18 +91,18 @@
 	<div class="container">
 		<a href="/" class="logo">Logan Munsee</a>
 		<div class="brightness-control">
-			<span aria-hidden="true">🌙</span>
+			<span aria-hidden="true">Night</span>
 
 			<input
 				type="range"
-				min="30"
-				max="70"
+				min={MIN}
+				max={MAX}
 				step="1"
 				bind:value={brightness}
 				aria-label="Adjust appearance"
 			/>
 
-			<span aria-hidden="true">☀️</span>
+			<span aria-hidden="true">Neon</span>
 		</div>
 
 		<nav class="nav-desktop">
@@ -118,7 +113,6 @@
 			<a href="/contact">Contact</a>
 		</nav>
 
-		<!-- Mobile Menu Button -->
 		<button class="mobile-toggle" onclick={toggleMenu} aria-label="Toggle mobile menu">
 			<span class={mobileOpen ? 'bar open' : 'bar'}></span>
 			<span class={mobileOpen ? 'bar open' : 'bar'}></span>
@@ -126,7 +120,6 @@
 		</button>
 	</div>
 
-	<!-- Mobile Navigation -->
 	{#if mobileOpen}
 		<nav class="nav-mobile" transition:slide={{ duration: 300 }}>
 			<a href="/" onclick={toggleMenu}>Home</a>
@@ -157,6 +150,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		gap: 1.5rem;
 	}
 
 	.logo {
@@ -197,18 +191,63 @@
 	.nav-desktop a:hover::after {
 		width: 100%;
 	}
+
 	.brightness-control {
 		display: flex;
 		align-items: center;
 		gap: 0.75rem;
-		max-width: 260px;
+		max-width: 320px;
+	}
+
+	.brightness-control span {
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: rgba(255, 255, 255, 0.8);
 	}
 
 	input[type='range'] {
 		flex: 1;
+		height: 10px;
+		appearance: none;
+		background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+		border-radius: 999px;
+		box-shadow:
+			inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+			0 0 0 1px rgba(0, 0, 0, 0.15);
 	}
 
-	/* Mobile Button */
+	input[type='range']::-webkit-slider-thumb {
+		appearance: none;
+		width: 18px;
+		height: 18px;
+		border-radius: 50%;
+		background: #ffffff;
+		border: 2px solid rgba(0, 0, 0, 0.15);
+		box-shadow:
+			0 4px 10px rgba(0, 0, 0, 0.22),
+			0 0 0 6px rgba(255, 255, 255, 0.2);
+	}
+
+	input[type='range']::-moz-range-track {
+		height: 10px;
+		background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+		border-radius: 999px;
+		border: 1px solid rgba(255, 255, 255, 0.18);
+		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+	}
+
+	input[type='range']::-moz-range-thumb {
+		width: 18px;
+		height: 18px;
+		border-radius: 50%;
+		background: #ffffff;
+		border: 2px solid rgba(0, 0, 0, 0.15);
+		box-shadow:
+			0 4px 10px rgba(0, 0, 0, 0.22),
+			0 0 0 6px rgba(255, 255, 255, 0.2);
+	}
+
 	.mobile-toggle {
 		display: none;
 		flex-direction: column;
@@ -238,7 +277,6 @@
 		transform: translateY(-8px) rotate(-45deg);
 	}
 
-	/* Mobile Navigation Dropdown */
 	.nav-mobile {
 		display: flex;
 		flex-direction: column;
@@ -257,7 +295,6 @@
 		color: var(--text-color);
 	}
 
-	/* Responsive Rules */
 	@media (max-width: 850px) {
 		.nav-desktop {
 			display: none;
